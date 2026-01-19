@@ -1,6 +1,6 @@
 FROM        scratch
 
-FROM registry.access.redhat.com/ubi9/ubi-minimal:9.6-1754356396
+FROM registry.access.redhat.com/ubi9/ubi-minimal:9.7-1768783948
 
 LABEL name="Test project 2"
 LABEL description="Konflux Test project 2"
