@@ -340,6 +340,24 @@ spec:
         operator: in
         values:
         - "false"
+    - name: rox-scan
+      params:
+      - name: image-digest
+        value: $(tasks.build-image-index.results.IMAGE_DIGEST)
+      - name: image-url
+        value: $(tasks.build-image-index.results.IMAGE_URL)
+      runAfter:
+      - build-image-index
+      taskRef:
+        resolver: git
+        params:
+          - name: url
+            value: https://github.com/jsztuka/devfile-sample-java-springboot-basic
+          - name: revision
+            value: main
+          - name: pathInRepo
+            value: rox/rox-sample-task.yaml
+      timeout: 1h
     - name: ecosystem-cert-preflight-checks
       params:
       - name: image-url
